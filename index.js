@@ -11,7 +11,6 @@ const posts = require("./postSchema");
 const quiz = require("./quizSchema");
 const TagsObj = require("../server/tagsObject");
 const quizOBJ = require("../server/quizObject");
-const port = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
@@ -224,6 +223,6 @@ app.post("/replypost", async (req, res) => {
   }
 });
 
-app.listen(process.env.PORT || port, () => {
-  console.log(`server running on port: ${port}`);
+app.listen(process.env.PORT || 5000, () => {
+  console.log(`Server running on port: 5000`);
 });
