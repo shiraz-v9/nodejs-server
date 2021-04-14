@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-require("dotenv/config"); //DB credential file is on gitIgnore list
+require('dotenv').config();
 
 const cors = require("cors");
 const bodyParser = require("body-parser");
@@ -11,7 +11,7 @@ const posts = require("./postSchema");
 const quiz = require("./quizSchema");
 const TagsObj = require("../server/tagsObject");
 const quizOBJ = require("../server/quizObject");
-const port = 5000;
+const port = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
