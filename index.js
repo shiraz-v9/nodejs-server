@@ -46,6 +46,10 @@ app.get("/resample", (req, res) => {
     });
 });
 
+app.get("/", (req,res) => {
+  res.send("welcome to HTML tutorial backend");
+})
+
 app.get("/home", async (req, res) => {
   try {
     const justTags = await html.find({});
