@@ -9,8 +9,8 @@ const html = require("./tagSchema");
 const users = require("./userSchema");
 const posts = require("./postSchema");
 const quiz = require("./quizSchema");
-const TagsObj = require("../server/tagsObject");
-const quizOBJ = require("../server/quizObject");
+const TagsObj = require("./tagsObject");
+const quizOBJ = require("./quizObject");
 
 app.use(cors());
 app.use(express.json());
