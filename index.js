@@ -17,9 +17,6 @@ app.use(express.json());
 
 const heroku = process.env.MONGODB;
 
-// var jsonParser = bodyParser.json();
-// var urlencodedParser = bodyParser.urlencoded({ extended: false });
-
 //new connection to no SQL Mongo DB
 const mongo = require("mongodb").MongoClient;
 const url = process.env.MONGODB;
