@@ -22,7 +22,6 @@ const mongo = require("mongodb").MongoClient;
 const herokuURL = process.env.MONGODB;
 const localURL = process.env.myConnection;
 const mongoose = require("mongoose");
-const { post, error } = require("jquery");
 const { response } = require("express");
 
 mongoose
