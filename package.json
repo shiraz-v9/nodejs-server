@@ -4,7 +4,8 @@
   "description": "node server",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "author": "Kashif Tauseef 17088205",
   "license": "ISC",

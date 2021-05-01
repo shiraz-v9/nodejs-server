@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-require('dotenv').config();
+require("dotenv").config();
 
 const cors = require("cors");
 const bodyParser = require("body-parser");
@@ -19,13 +19,14 @@ const heroku = process.env.MONGODB;
 
 //new connection to no SQL Mongo DB
 const mongo = require("mongodb").MongoClient;
-const url = process.env.MONGODB;
+const herokuURL = process.env.MONGODB;
+const localURL = process.env.myConnection;
 const mongoose = require("mongoose");
 const { post, error } = require("jquery");
 const { response } = require("express");
 
 mongoose
-  .connect(url, {
+  .connect(herokuURL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -44,9 +45,9 @@ app.get("/resample", (req, res) => {
     });
 });
 
-app.get("/", (req,res) => {
+app.get("/", (req, res) => {
   res.send("welcome to HTML tutorial backend");
-})
+});
 
 app.get("/home", async (req, res) => {
   try {
@@ -140,6 +141,19 @@ app.post("/resamplequiz", (req, res) => {
     res.json(quizOBJ);
   } catch (error) {
     console.log(error);
+  }
+});
+
+app.post("/findposts", async (req, res) => {
+  const query = req.body.search;
+  const findings = await posts.find({
+    postQuestion: { $regex: ".*" + query + ".*", $options: "i" },
+  });
+  try {
+    res.json(findings);
+  } catch (error) {
+    console.log(error);
+    res.json(error);
   }
 });
 
