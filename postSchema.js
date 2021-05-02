@@ -7,7 +7,13 @@ const communityPosts = new Schema({
   postAuthorID: String,
   postDate: String,
   postAnswer: [
-    { userID: String, user: String, answer: String, answerDate: String },
+    {
+      userID: String,
+      user: String,
+      answer: String,
+      code: String,
+      answerDate: String,
+    },
   ],
 });
 

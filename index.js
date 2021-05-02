@@ -233,9 +233,11 @@ app.post("/replypost", async (req, res) => {
     user: req.body.user,
     answer: req.body.message,
     answerDate: req.body.answerDate,
+    code: req.body.code,
   };
 
   try {
+    console.log(obj);
     await posts.findOne({ _id: req.body.id }).then(function (comment) {
       comment.postAnswer.push(obj);
       comment.save();
