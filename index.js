@@ -178,11 +178,23 @@ app.get("/getuserposts/:authorID", async (req, res) => {
 
 app.get("/myanswers/:id", async (req, res) => {
   try {
-    const q = await posts.find(
-      { "postAnswer.userID": req.params.id },
-      { "postAnswer.$": 1 }
+    const filtered = [];
+    const query = await posts.find({}, "postAnswer");
+    var map = query.map((x) =>
+      x.postAnswer.map((y) => {
+        if (y.userID == req.params.id) {
+          filtered.push({
+            _id: y._id,
+            userID: y.userID,
+            user: y.user,
+            answer: y.answer,
+            date: y.answerDate,
+          });
+        }
+      })
     );
-    res.json(q);
+
+    res.json(filtered);
   } catch (error) {
     res.send(error);
   }
