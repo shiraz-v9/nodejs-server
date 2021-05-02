@@ -184,7 +184,8 @@ app.get("/myanswers/:id", async (req, res) => {
       x.postAnswer.map((y) => {
         if (y.userID == req.params.id) {
           filtered.push({
-            _id: y._id,
+            postID: x._id,
+            commentID: y._id,
             userID: y.userID,
             user: y.user,
             answer: y.answer,
