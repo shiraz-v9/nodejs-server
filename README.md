@@ -3,7 +3,7 @@
 ## To run the website activate [Back End ][Back End Link]
 [Back End Link]: https://calm-lake-25316.herokuapp.com/ "Back End Link"
 
-##NOTE 
+## NOTE 
 This back - end is deployed on heroku so there is noo need to run this project because
 the front end is fetching data with Heroku links!
 It can take upto a minute on first load and sleeps after 30 mins of inactivity.
